@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import api from "../util/api";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Loading from "./Loading";
 import "../App.css";
 
 class Client extends Component {
@@ -20,6 +21,7 @@ class Client extends Component {
   }
   render() {
     const { data } = this.state;
+    if(!data) return <Loading/>
     return (
       <div className="container">
         <h4 className="blue-text center">Crystal Crater Water</h4>
@@ -50,6 +52,9 @@ class Client extends Component {
                 <td>{client.previous_reading}</td>
                 <td>{client.current_reading}</td>
                 <td>{client.units}</td>
+                <Link to={"/user/" + client._id}>
+                  <button className="btn">view</button>
+                </Link>
               </tr>
             ))}
           </tbody>

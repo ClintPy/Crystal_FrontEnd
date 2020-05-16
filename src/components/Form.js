@@ -27,16 +27,18 @@ class Form extends Component {
       previous_reading,
       current_reading,
     } = this.state;
+    const user = {
+      name,
+      id_number,
+      phone_number,
+      meter_no,
+      previous_reading,
+      current_reading,
+    };
     axios
-      .post(api, {
-        name,
-        id_number,
-        phone_number,
-        meter_no,
-        previous_reading,
-        current_reading,
-      })
-      .then(() => {
+      .post(api, user)
+      .then((res) => {
+        console.log(res);
         this.setState({
           name: "",
           id_number: "",
@@ -45,16 +47,25 @@ class Form extends Component {
           previous_reading: "",
           current_reading: "",
         });
-      });
+      })
+      .catch((err) => console.log(err));
   };
 
-  handleChange = (key, event) => {
+  handleChange = (event) => {
     this.setState({
-      [key]: event.target.value,
+      [event.target.name]: event.target.value,
     });
   };
 
   render() {
+    const {
+      name,
+      id_number,
+      phone_number,
+      meter_no,
+      previous_reading,
+      current_reading,
+    } = this.state;
     return (
       <form>
         <fieldset>
@@ -62,58 +73,68 @@ class Form extends Component {
             <label htmlFor="aligned-name">Name:</label>
             <input
               type="text"
-              id="aligned-name"
               placeholder="Name"
-              onChange={ev => this.handleChange("name", ev)}
+              value={name}
+              name="name"
+              onChange={this.handleChange}
             />
           </div>
           <div className="pure-control-group">
             <label htmlFor="aligned-password">Id Number</label>
             <input
               type="text"
-              id="aligned-password"
               placeholder="Id Number"
-              onChange={ev => this.handleChange("id_number", ev)}
+              value={id_number}
+              name="id_number"
+              onChange={this.handleChange}
             />
           </div>
           <div className="pure-control-group">
             <label htmlFor="aligned-email">Phone Number</label>
             <input
               type="text"
-              id="aligned-email"
               placeholder="Phone Number"
-              onChange={ev => this.handleChange("phone_number", ev)}
+              value={phone_number}
+              name="phone_number"
+              onChange={this.handleChange}
             />
           </div>
           <div className="pure-control-group">
             <label htmlFor="aligned-foo">Meter Number</label>
             <input
               type="text"
-              id="aligned-foo"
               placeholder="Meter Number"
-              onChange={ev => this.handleChange("meter_no", ev)}
+              value={meter_no}
+              name="meter_no"
+              onChange={this.handleChange}
             />
           </div>
           <div className="pure-control-group">
             <label htmlFor="aligned-foo">Previous Reading</label>
             <input
               type="text"
-              id="aligned-foo"
               placeholder="Previous Reading"
-              onChange={ev => this.handleChange("previous_reading", ev)}
+              value={previous_reading}
+              name="previous_reading"
+              onChange={this.handleChange}
             />
           </div>
           <div className="pure-control-group">
             <label htmlFor="aligned-foo">Current Reading</label>
             <input
               type="text"
-              id="aligned-foo"
               placeholder="Current Reading"
-              onChange={ev => this.handleChange("current_reading", ev)}
+              value={current_reading}
+              name="current_reading"
+              onChange={this.handleChange}
             />
           </div>
           <div className="pure-controls">
-            <button type="submit" className="btn center" onSubmit={this.handleSubmit}>
+            <button
+              type="submit"
+              className="btn center"
+              onSubmit={this.handleSubmit}
+            >
               Submit
             </button>
           </div>
