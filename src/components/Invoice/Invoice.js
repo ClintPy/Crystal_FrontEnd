@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
 const Invoice = ({ invoice }) => (
   <Document>
     <Page size="A4" style={styles.page}>
-      <InvoiceTitle title="Invoice" />
+      <InvoiceTitle title="Crystal Crater Water" />
       <InvoiceNo invoice={invoice}/>
       <BillTo invoice={invoice} />
       <InvoiceItemsTable invoice={invoice}/>

@@ -22,6 +22,7 @@ class Details extends Component {
 
   render() {
     const { data } = this.state;
+    const id = this.props.match.params.id;
     // console.log(data.name)
     if (!data) return <Loading />;
     return (
@@ -54,7 +55,7 @@ class Details extends Component {
               <td>{data.units}</td>
             </tr>
             <br></br>
-            <Link to="/display">
+            <Link to={"/display/" + id}>
               <button className="btn teal">Generate Report</button>
             </Link>
           </tbody>

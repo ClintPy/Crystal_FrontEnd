@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     <View style={styles.tableContainer}>
       <InvoiceTableHeader />
       <InvoiceTableRow items={invoice.items} />
-      <InvoiceTabBlankSpace rowsCount = { tableRowsCount - invoice.items.length } />
+      <InvoiceTabBlankSpace rowsCount = { tableRowsCount - invoice.items.length} />
     </View>
   );
   
