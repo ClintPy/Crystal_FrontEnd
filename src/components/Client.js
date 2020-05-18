@@ -10,15 +10,19 @@ class Client extends Component {
     super(props);
     this.state = {
       data: [],
+      render: false,
     };
   }
 
   componentDidMount() {
-    axios.get(api).then((responce) => {
-      const data = responce.data;
-      this.setState({ data });
-    });
+    setTimeout(() => {
+      axios.get(api).then((responce) => {
+        const data = responce.data;
+        this.setState({ data });
+      });
+    }, 1000);
   }
+  
   render() {
     const { data } = this.state;
     // console.log(data.reverse())
