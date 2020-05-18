@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import api from "../util/api";
+import {Redirect} from 'react-router-dom';
 
 import "../App.css";
 
@@ -14,6 +15,7 @@ class Form extends Component {
       meter_no: "",
       previous_reading: "",
       current_reading: "",
+      redirect: null
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -45,6 +47,7 @@ class Form extends Component {
       meter_no: "",
       previous_reading: "",
       current_reading: "",
+      redirect: true
     });
   }
 
@@ -62,7 +65,9 @@ class Form extends Component {
       meter_no,
       previous_reading,
       current_reading,
+      redirect
     } = this.state;
+    if(redirect) return <Redirect to="/"/>
     return (
       <form onSubmit={this.handleSubmit}>
         <fieldset>

@@ -21,6 +21,7 @@ class Client extends Component {
   }
   render() {
     const { data } = this.state;
+    // console.log(data.reverse())
     if (data.length === 0) return <Loading />;
     return (
       <div className="container">
@@ -46,7 +47,7 @@ class Client extends Component {
             </tr>
           </thead>
           <tbody>
-            {data.map((client) => (
+            {data.reverse().map((client) => (
               <tr>
                 <td>{client.name}</td>
                 <td>{client.id_number}</td>
@@ -54,7 +55,7 @@ class Client extends Component {
                 <td>{client.meter_no}</td>
                 <td>{client.previous_reading}</td>
                 <td>{client.current_reading}</td>
-                <td>{client.units}</td>
+                <td>{client.units}/=</td>
                 <Link to={"/user/" + client._id}>
                   <button className="btn">view</button>
                 </Link>

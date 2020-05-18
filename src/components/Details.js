@@ -24,7 +24,7 @@ class Details extends Component {
     const { data } = this.state;
     const id = this.props.match.params.id;
     // console.log(data.name)
-    if (!data.length === 0) return <Loading />;
+    if (data.length === 0) return <Loading />;
     return (
       <div className="container">
         <h5 className="center teal-text">{data.name}'s Details</h5>
@@ -52,7 +52,7 @@ class Details extends Component {
               <td>{data.meter_no}</td>
               <td>{data.previous_reading}</td>
               <td>{data.current_reading}</td>
-              <td>{data.units}</td>
+              <td>{data.units}/=</td>
             </tr>
             <br></br>
             <Link to={"/display/" + id}>

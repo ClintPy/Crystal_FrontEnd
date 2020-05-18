@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import api from "../util/api";
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
-import Error from "./Error";
 
 import "../App.css";
 

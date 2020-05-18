@@ -51,7 +51,7 @@ const InvoiceTableRow = ({ data }) => {
       <Text style={styles.qty}>{data.meter_no}</Text>
       <Text style={styles.rate}>{data.previous_reading}</Text>
       <Text style={styles.amount}>{data.current_reading}</Text>
-      <Text style={styles.units}>{data.units}</Text>
+      <Text style={styles.units}>{data.units}/=</Text>
     </View>
   );
 };
