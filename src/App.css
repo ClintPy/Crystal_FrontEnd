@@ -8,3 +8,15 @@ input[type=text] {
 left-spaced {
     margin-right: 1rem;
 }
+
+.striped .left-space{
+    margin-left: 1rem;
+}
+
+.striped .right-space {
+    margin-right: 1rem;
+}
+
+.right-space {
+    margin-right: 1rem;
+}

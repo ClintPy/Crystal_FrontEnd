@@ -24,10 +24,10 @@ class Details extends Component {
     const { data } = this.state;
     const id = this.props.match.params.id;
     // console.log(data.name)
-    if (!data) return <Loading />;
+    if (!data.length === 0) return <Loading />;
     return (
       <div className="container">
-        <h5 className="center teal-text">{`${data.name}'s Details`}</h5>
+        <h5 className="center teal-text">{data.name}'s Details</h5>
         <Link to="/">
           <button className="teal btn">Back</button>
         </Link>
@@ -56,7 +56,7 @@ class Details extends Component {
             </tr>
             <br></br>
             <Link to={"/display/" + id}>
-              <button className="btn teal">Generate Report</button>
+              <button className="btn teal right-space">Generate Report</button>
             </Link>
           </tbody>
         </table>

@@ -12,14 +12,14 @@ const styles = StyleSheet.create({
     fontStyle: "bold",
   },
   description: {
-    width: "60%",
+    width: "35%",
     textAlign: "left",
     borderRightColor: borderColor,
     borderRightWidth: 1,
     paddingLeft: 8,
   },
   qty: {
-    width: "10%",
+    width: "25%",
     borderRightColor: borderColor,
     borderRightWidth: 1,
     textAlign: "right",
@@ -37,18 +37,23 @@ const styles = StyleSheet.create({
     textAlign: "right",
     paddingRight: 8,
   },
+  units: {
+    width: "10%",
+    textAlign: "right",
+    paddingRight: 8,
+  },
 });
 
-const InvoiceTableRow = ({ items }) => {
-  const rows = items.map((item) => (
-    <View style={styles.row} key={item.sno.toString()}>
-      <Text style={styles.description}>{item.desc}</Text>
-      <Text style={styles.qty}>{item.qty}</Text>
-      <Text style={styles.rate}>{item.rate}</Text>
-      <Text style={styles.amount}>{(item.qty * item.rate).toFixed(2)}</Text>
+const InvoiceTableRow = ({ data }) => {
+  return (
+    <View style={styles.row}>
+      <Text style={styles.description}>{data.name}</Text>
+      <Text style={styles.qty}>{data.meter_no}</Text>
+      <Text style={styles.rate}>{data.previous_reading}</Text>
+      <Text style={styles.amount}>{data.current_reading}</Text>
+      <Text style={styles.units}>{data.units}</Text>
     </View>
-  ));
-  return <Fragment>{rows}</Fragment>;
+  );
 };
 
 export default InvoiceTableRow;

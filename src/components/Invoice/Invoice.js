@@ -5,7 +5,6 @@ import InvoiceNo from "./InvoiceNo";
 import BillTo from "./BillTo";
 import InvoiceItemsTable from "./InvoiceItemsTables";
 import InvoiceThankYouMsg from "./InvoiceThankYouMsg";
-import InvoiceTableFooter from "./InvoiceTableFooter";
 
 const styles = StyleSheet.create({
   page: {
@@ -23,7 +22,7 @@ const Invoice = ({ invoice }) => (
   <Document>
     <Page size="A4" style={styles.page}>
       <InvoiceTitle title="Crystal Crater Water" />
-      <InvoiceNo invoice={invoice}/>
+      <InvoiceNo invoice={invoice.meter_no}/>
       <BillTo invoice={invoice} />
       <InvoiceItemsTable invoice={invoice}/>
       {/* <InvoiceTableFooter invoice={invoice} /> */}

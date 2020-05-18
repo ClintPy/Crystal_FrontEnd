@@ -1,10 +1,29 @@
 import React, { Component } from "react";
-import Invoice from "./Invoice";
-import { PDFViewer } from "@react-pdf/renderer";
-import invoiceData from "./data";
-import axios from "axios";
-import api from "../../util/api";
+import {
+  Page,
+  Text,
+  View,
+  Document,
+  StyleSheet,
+  PDFViewer,
+} from "@react-pdf/renderer";
+import InvoiceTitle from "./heading";
+import InvoiceNo from "./InvoiceNo";
+import InvoiceItemsTable from "./InvoiceItemsTables";
+import InvoiceThankYouMsg from "./InvoiceThankYouMsg";
 
+import api from "../../util/api";
+import axios from "axios";
+
+// Create styles
+const styles = StyleSheet.create({
+  page: {
+    backgroundColor: "#E4E4E4",
+    fontSize: 10,
+  },
+});
+
+// Create Document Component
 class Display extends Component {
   constructor(props) {
     super(props);
@@ -22,12 +41,17 @@ class Display extends Component {
   }
 
   render() {
-    const { data } = this.state
-    const id = this.props.match.params.id;
-    console.log(data);
+    const { data } = this.state;
     return (
-      <PDFViewer width="1360" height="650" className="app">
-        <Invoice invoice={data} />
+      <PDFViewer width="1350" height="800">
+        <Document>
+          <Page size="A5" style={styles.page}>
+            <InvoiceTitle />
+            <InvoiceNo data={data}/>
+            <InvoiceItemsTable data={data} />
+            <InvoiceThankYouMsg/>
+          </Page>
+        </Document>
       </PDFViewer>
     );
   }

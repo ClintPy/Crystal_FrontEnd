@@ -21,13 +21,16 @@ class Client extends Component {
   }
   render() {
     const { data } = this.state;
-    if(!data) return <Loading/>
+    if (data.length === 0) return <Loading />;
     return (
       <div className="container">
         <h4 className="blue-text center">Crystal Crater Water</h4>
         <h5 className="center teal-text">Client Details</h5>
         <Link to="/users">
-          <button className="teal btn">Add Client</button>
+          <button className="teal btn right-space">Add Client</button>
+        </Link>
+        <Link to="/add">
+          <button className="teal btn right-space">Add Meter Reading</button>
         </Link>
         <hr />
         <table className="striped">

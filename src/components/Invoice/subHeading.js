@@ -13,10 +13,10 @@ const styles = StyleSheet.create({
   },
 });
 
-const InvoiceThankYouMsg = () => (
+const subHeading = () => (
   <View style={styles.titleContainer}>
-    <Text style={styles.reportTitle}>Thank You!</Text>
+    <Text style={styles.reportTitle}>Client's Invoice</Text>
   </View>
 );
 
-export default InvoiceThankYouMsg;
+export default subHeading;

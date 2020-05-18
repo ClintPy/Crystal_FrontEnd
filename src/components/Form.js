@@ -15,47 +15,44 @@ class Form extends Component {
       previous_reading: "",
       current_reading: "",
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit = (e) => {
+  handleSubmit(e) {
     e.preventDefault();
-    const {
-      name,
-      id_number,
-      phone_number,
-      meter_no,
-      previous_reading,
-      current_reading,
-    } = this.state;
     const user = {
-      name,
-      id_number,
-      phone_number,
-      meter_no,
-      previous_reading,
-      current_reading,
+      name: this.state.name,
+      id_number: this.state.id_number,
+      phone_number: this.state.phone_number,
+      meter_no: this.state.meter_no,
+      previous_reading: this.state.previous_reading,
+      current_reading: this.state.current_reading,
     };
-    axios
-      .post(api, user)
-      .then((res) => {
-        console.log(res);
-        this.setState({
-          name: "",
-          id_number: "",
-          phone_number: "",
-          meter_no: "",
-          previous_reading: "",
-          current_reading: "",
-        });
-      })
-      .catch((err) => console.log(err));
-  };
+    axios.post("https://crystalcrater.herokuapp.com/api/v1/users/", user).then(
+      (res) => {
+        console.log(res.data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
 
-  handleChange = (event) => {
+    this.setState({
+      name: "",
+      id_number: "",
+      phone_number: "",
+      meter_no: "",
+      previous_reading: "",
+      current_reading: "",
+    });
+  }
+
+  handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value,
     });
-  };
+  }
 
   render() {
     const {
@@ -67,7 +64,7 @@ class Form extends Component {
       current_reading,
     } = this.state;
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <fieldset>
           <div>
             <label htmlFor="aligned-name">Name:</label>

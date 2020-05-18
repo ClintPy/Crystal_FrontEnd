@@ -14,12 +14,12 @@ const styles = StyleSheet.create({
     fontStyle: "bold",
   },
   description: {
-    width: "60%",
+    width: "35%",
     borderRightColor: borderColor,
     borderRightWidth: 1,
   },
   qty: {
-    width: "10%",
+    width: "25%",
     borderRightColor: borderColor,
     borderRightWidth: 1,
   },
@@ -31,14 +31,18 @@ const styles = StyleSheet.create({
   amount: {
     width: "15%",
   },
+  units: {
+    width: "10%",
+  },
 });
 
 const InvoiceTableHeader = () => (
   <View style={styles.container}>
-    <Text style={styles.description}>Item Description</Text>
-    <Text style={styles.qty}>Qty</Text>
-    <Text style={styles.rate}>@</Text>
-    <Text style={styles.amount}>Amount</Text>
+    <Text style={styles.description}>Client's Name</Text>
+    <Text style={styles.qty}>Meter No.</Text>
+    <Text style={styles.rate}>Prev. Reading</Text>
+    <Text style={styles.amount}>Curr. Reading</Text>
+    <Text style={styles.units}>Units</Text>
   </View>
 );
 
