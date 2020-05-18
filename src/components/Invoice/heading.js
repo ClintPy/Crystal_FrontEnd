@@ -7,24 +7,17 @@ const styles = StyleSheet.create({
         marginTop: 24,
     },
     reportTitle:{
-        color: '#61dafb',
+        color: '#008080',
         letterSpacing: 4,
         fontSize: 25,
         textAlign: 'center',
         textTransform: 'uppercase',
-    },
-    reportSubTitle: {
-        color: '#000',
-        fontSize: 12,
-        letterSpacing: 20,
-        textAlign: 'center',
-        textTransform: 'uppercase'
     }
   });
 
   const InvoiceTitle = () => (
     <View style={styles.titleContainer}>
-        <Text style={styles.reportTitle}>Crytal Water Company</Text>
+        <Text style={styles.reportTitle}>Crytal Crater Water</Text>
     </View>
   );
   
